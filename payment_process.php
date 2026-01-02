@@ -162,9 +162,10 @@ if (in_array($payment_method, ['GPay', 'Card', 'UPI'])) {
                                 
                                 <div class="mb-3">
                                     <label for="card_name" class="form-label">Cardholder Name *</label>
-                                    <input type="text" class="form-control" id="card_name" name="card_name" 
-                                           placeholder="John Doe" required>
+                                    <input type="text" class="form-control" id="card_name" name="card_name"
+                                           placeholder="JOHN DOE" oninput="this.value = this.value.toUpperCase();" required>
                                 </div>
+
                                 
                                 <div class="row">
                                     <div class="col-md-6 mb-3">
