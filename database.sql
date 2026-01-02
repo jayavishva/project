@@ -126,3 +126,11 @@ VALUES
 ('Premium Henna Powder', 'Premium quality henna powder with natural ingredients', 399.00, 
   Null, 'assets/images/Premium_Henna_Powder.jpg', 35, 'Henna Powder', 100, 'grams', 'active');
 
+ALTER TABLE orders
+ADD COLUMN cancelled_at DATETIME NULL,
+ADD COLUMN refund_status ENUM('none','pending','completed','failed') DEFAULT 'none',
+ADD COLUMN refund_amount DECIMAL(10,2) DEFAULT 0.00;
+
+UPDATE orders 
+SET refund_status = 'completed'
+WHERE id = 123;

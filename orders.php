@@ -4,6 +4,10 @@ require_once 'includes/header.php';
 requireLogin();
 
 $conn = getDBConnection();
+function canCancelOrder($order) {
+    return in_array($order['status'], ['pending', 'processing']);
+}
+
 
 // Get order ID from query string if viewing specific order
 $order_id = isset($_GET['order_id']) ? intval($_GET['order_id']) : 0;
@@ -76,6 +80,25 @@ if ($order_id > 0) {
                             <?php echo ucfirst($payment_status); ?>
                         </span>
                     </p>
+                    <?php if (!empty($order['refund_status']) && $order['refund_status'] !== 'none'): ?>
+    <p><strong>Refund Status:</strong>
+        <span class="badge bg-<?php
+            echo $order['refund_status'] === 'completed' ? 'success' :
+                 ($order['refund_status'] === 'failed' ? 'danger' : 'warning');
+        ?>">
+            <?php echo ucfirst($order['refund_status']); ?>
+        </span>
+    </p>
+
+    <p><strong>Refund Amount:</strong>
+        <?php echo formatPrice($order['refund_amount']); ?>
+    </p>
+<?php endif; ?>
+<?php if ($order['refund_status'] === 'pending'): ?>
+    <small class="text-muted">Refund will be credited within 3–5 working days.</small>
+<?php endif; ?>
+
+
                     <?php if (!empty($order['payment_transaction_id'])): ?>
                     <p><strong>Transaction ID:</strong> <small><?php echo htmlspecialchars($order['payment_transaction_id']); ?></small></p>
                     <?php endif; ?>
@@ -223,6 +246,19 @@ if ($order_id > 0) {
                                 <a href="orders.php?order_id=<?php echo $order['id']; ?>" class="btn btn-sm btn-primary">
                                     View Details
                                 </a>
+
+<?php if (canCancelOrder($order)): ?>
+    <form method="POST" action="cancel_order.php" class="d-inline"
+          onsubmit="return confirm('Are you sure you want to cancel this order?');">
+        <input type="hidden" name="order_id" value="<?php echo $order['id']; ?>">
+        <button type="submit" class="btn btn-sm btn-danger">
+            Cancel
+        </button>
+    </form>
+<?php endif; ?>
+
+
+
                             </td>
                         </tr>
                     <?php endwhile; ?>
