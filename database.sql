@@ -131,6 +131,12 @@ ADD COLUMN cancelled_at DATETIME NULL,
 ADD COLUMN refund_status ENUM('none','pending','completed','failed') DEFAULT 'none',
 ADD COLUMN refund_amount DECIMAL(10,2) DEFAULT 0.00;
 
-UPDATE orders 
-SET refund_status = 'completed'
-WHERE id = 123;
+
+ALTER TABLE orders
+MODIFY payment_status ENUM('pending','success','failed') DEFAULT 'pending';
+
+ALTER TABLE orders
+ADD COLUMN cancelled_at DATETIME NULL AFTER status,
+ADD COLUMN refund_status ENUM('none','pending','completed','failed') DEFAULT 'none' AFTER payment_status,
+ADD COLUMN refund_amount DECIMAL(10,2) DEFAULT 0.00 AFTER refund_status,
+ADD COLUMN refund_completed_at DATETIME NULL AFTER refund_amount;
