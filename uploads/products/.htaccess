@@ -1,0 +1,10 @@
+# Allow access to uploaded images
+Options -Indexes
+
+# Prevent PHP execution in uploads directory
+<FilesMatch "\.php$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+

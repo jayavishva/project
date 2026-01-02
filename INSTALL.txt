@@ -1,0 +1,57 @@
+QUICK SETUP GUIDE - Mehedi E-commerce Website
+==============================================
+
+STEP 1: Database Setup
+-----------------------
+1. Open phpMyAdmin or MySQL command line
+2. Create a new database OR import database.sql
+3. If importing: Click "Import" in phpMyAdmin and select database.sql
+
+STEP 2: Configure Database
+-----------------------------
+1. Open: config/database.php
+2. Update these lines with your database credentials:
+   - DB_HOST: 'localhost' (or your MySQL host)
+   - DB_USER: 'root' (or your MySQL username)
+   - DB_PASS: '' (or your MySQL password)
+   - DB_NAME: 'mehedi_shop' (or your database name)
+
+STEP 3: Set Permissions
+------------------------
+1. Make sure uploads/products/ folder is writable
+   - Windows: Right-click folder > Properties > Security > Allow write
+   - Linux/Mac: chmod 755 uploads/products/
+
+STEP 4: Access the Website
+---------------------------
+1. Open browser: http://localhost/project/
+   (Adjust path based on your server setup)
+
+STEP 5: Login as Admin
+----------------------
+Username: admin
+Password: admin123
+
+IMPORTANT: Change the admin password after first login!
+
+STEP 6: Add Products
+--------------------
+1. Login as admin
+2. Go to Admin Panel > Products
+3. Add products with images (upload or URL)
+4. Set prices, stock, and categories
+
+DEFAULT SAMPLE PRODUCTS:
+- The database.sql includes 5 sample products
+- You can edit or delete them from admin panel
+
+TROUBLESHOOTING:
+---------------
+- Images not showing? Check uploads/products/ permissions
+- Database error? Verify credentials in config/database.php
+- Can't login? Default admin password is: admin123
+- 404 errors? Check .htaccess file exists and mod_rewrite is enabled
+
+For detailed documentation, see README.md
+
+

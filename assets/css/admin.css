@@ -1,0 +1,270 @@
+/* Admin Panel Stylesheet */
+
+:root {
+    --admin-primary: #0d6efd;
+    --admin-success: #198754;
+    --admin-danger: #dc3545;
+    --admin-warning: #ffc107;
+    --admin-info: #0dcaf0;
+    --admin-dark: #212529;
+    --admin-light: #f8f9fa;
+}
+
+/* Admin Dashboard Cards */
+.card.bg-primary,
+.card.bg-success,
+.card.bg-info,
+.card.bg-warning {
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card.bg-primary .card-body,
+.card.bg-success .card-body,
+.card.bg-info .card-body,
+.card.bg-warning .card-body {
+    padding: 1.5rem;
+}
+
+.card.bg-primary h2,
+.card.bg-success h2,
+.card.bg-info h2,
+.card.bg-warning h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+.card.bg-primary h5,
+.card.bg-success h5,
+.card.bg-info h5,
+.card.bg-warning h5 {
+    font-size: 0.9rem;
+    opacity: 0.9;
+    margin-bottom: 0.5rem;
+}
+
+/* Admin Tables */
+.table {
+    font-size: 0.95rem;
+}
+
+.table th {
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+    border-bottom: 2px solid #dee2e6;
+}
+
+.table td {
+    vertical-align: middle;
+}
+
+.table img {
+    border-radius: 4px;
+    border: 1px solid #dee2e6;
+}
+
+/* Admin Forms */
+.form-label {
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.form-control,
+.form-select {
+    border-radius: 6px;
+    border: 1px solid #ced4da;
+    padding: 0.6rem 0.75rem;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--admin-primary);
+    box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+}
+
+/* Admin Buttons */
+.btn-sm {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+}
+
+.btn-group .btn {
+    margin-right: 0.25rem;
+}
+
+/* Admin Cards */
+.card {
+    margin-bottom: 1.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+    background-color: var(--admin-light);
+    border-bottom: 2px solid #dee2e6;
+    font-weight: 600;
+    padding: 1rem 1.25rem;
+}
+
+.card-body {
+    padding: 1.25rem;
+}
+
+/* Statistics Cards */
+.card.bg-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.card.bg-success {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+.card.bg-info {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+
+.card.bg-warning {
+    background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+}
+
+/* Admin Alerts */
+.alert {
+    border-radius: 6px;
+    border: none;
+    padding: 1rem 1.25rem;
+}
+
+.alert-warning {
+    background-color: #fff3cd;
+    color: #856404;
+    border-left: 4px solid var(--admin-warning);
+}
+
+/* Admin Navigation */
+.navbar {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Quick Actions */
+.btn-group {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+/* Image Preview */
+img[style*="width: 50px"] {
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+}
+
+/* Status Badges */
+.badge {
+    padding: 0.4em 0.7em;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.badge.bg-success {
+    background-color: var(--admin-success) !important;
+}
+
+.badge.bg-danger {
+    background-color: var(--admin-danger) !important;
+}
+
+.badge.bg-warning {
+    background-color: var(--admin-warning) !important;
+    color: var(--admin-dark);
+}
+
+.badge.bg-secondary {
+    background-color: #6c757d !important;
+}
+
+/* Responsive Admin */
+@media (max-width: 768px) {
+    .card.bg-primary h2,
+    .card.bg-success h2,
+    .card.bg-info h2,
+    .card.bg-warning h2 {
+        font-size: 2rem;
+    }
+    
+    .table {
+        font-size: 0.85rem;
+    }
+    
+    .btn-sm {
+        padding: 0.2rem 0.4rem;
+        font-size: 0.8rem;
+    }
+    
+    .card-body {
+        padding: 1rem;
+    }
+}
+
+/* File Upload */
+input[type="file"] {
+    padding: 0.5rem;
+}
+
+input[type="file"]::file-selector-button {
+    padding: 0.5rem 1rem;
+    margin-right: 1rem;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    background-color: var(--admin-light);
+    cursor: pointer;
+}
+
+input[type="file"]::file-selector-button:hover {
+    background-color: #e9ecef;
+}
+
+/* Filter Forms */
+.form-select {
+    cursor: pointer;
+}
+
+/* Action Buttons */
+.btn-group .btn {
+    white-space: nowrap;
+}
+
+/* Order Details */
+.card .card-header + .card-body {
+    padding-top: 1.5rem;
+}
+
+/* Empty States */
+.text-center.text-muted {
+    padding: 2rem;
+    font-style: italic;
+}
+
+/* Loading States */
+.loading {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+/* Print Styles */
+@media print {
+    .btn,
+    .navbar,
+    footer {
+        display: none;
+    }
+    
+    .card {
+        border: 1px solid #000;
+        page-break-inside: avoid;
+    }
+}
+
+
